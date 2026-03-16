@@ -1,0 +1,86 @@
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "binary"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id          String            @id @default(uuid())
+  cpf         String            @unique
+  name        String
+  email       String            @unique
+  role        String            @default("PARTICIPANT")
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  companyId   String?
+  phone       String?
+  password    String?
+  evaluations DailyEvaluation[]
+  company     Company?          @relation(fields: [companyId], references: [id])
+}
+
+model Company {
+  id             String           @id @default(uuid())
+  cnpj           String           @unique
+  name           String
+  type           String
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  reports        ActivityReport[]
+  eventCompanies EventCompany[]
+  users          User[]
+}
+
+model Event {
+  id          String            @id @default(uuid())
+  title       String
+  description String?
+  startDate   DateTime
+  endDate     DateTime
+  startTime   String
+  endTime     String
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  reports     ActivityReport[]
+  evaluations DailyEvaluation[]
+  companies   EventCompany[]
+}
+
+model EventCompany {
+  id        String  @id @default(uuid())
+  eventId   String
+  companyId String
+  company   Company @relation(fields: [companyId], references: [id])
+  event     Event   @relation(fields: [eventId], references: [id])
+
+  @@unique([eventId, companyId])
+}
+
+model ActivityReport {
+  id          String   @id @default(uuid())
+  date        DateTime
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  eventId     String
+  companyId   String
+  company     Company  @relation(fields: [companyId], references: [id])
+  event       Event    @relation(fields: [eventId], references: [id])
+}
+
+model DailyEvaluation {
+  id        String   @id @default(uuid())
+  date      DateTime
+  rating    Int
+  feedback  String?
+  createdAt DateTime @default(now())
+  eventId   String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  event     Event    @relation(fields: [eventId], references: [id])
+
+  @@unique([eventId, userId, date])
+}
