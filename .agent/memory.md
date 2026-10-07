@@ -1,4 +1,4 @@
-# Memória do Projeto: Avalia
+# 🧠 Memória do Projeto e Hand-off (Para Agentes de IA e Desenvolvedores)
 
 Este arquivo serve como um log de decisões, problemas resolvidos e estado atual do projeto para garantir a continuidade entre diferentes sessões e desenvolvedores.
 
@@ -38,3 +38,6 @@ Sistema de avaliação de eventos e cursos com geração de certificados, integr
 
 ---
 *Última atualização: 2026-03-16 por Antigravity*
+
+### 📝 Commit Auto-Log (2026-03-16 15:27:37)
+- docs: configura automatização de histórico de memória via git hook

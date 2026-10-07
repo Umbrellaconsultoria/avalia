@@ -76,7 +76,8 @@ export const localAuthController = {
           email: user.email, 
           cpf: user.cpf, 
           name: user.name, 
-          internalRole: user.role 
+          internalRole: user.role,
+          companyId: user.companyId
         },
         JWT_SECRET,
         { expiresIn: '24h' }

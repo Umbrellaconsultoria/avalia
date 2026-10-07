@@ -72,15 +72,18 @@ model ActivityReport {
 }
 
 model DailyEvaluation {
-  id        String   @id @default(uuid())
-  date      DateTime
-  rating    Int
-  feedback  String?
-  createdAt DateTime @default(now())
-  eventId   String
-  userId    String
-  user      User     @relation(fields: [userId], references: [id])
-  event     Event    @relation(fields: [eventId], references: [id])
+  id               String   @id @default(uuid())
+  date             DateTime
+  rating           Int
+  feedback         String?
+  department       String?
+  participantName  String?
+  participantEmail String?
+  createdAt        DateTime @default(now())
+  eventId          String
+  userId           String?
+  user             User?    @relation(fields: [userId], references: [id])
+  event            Event    @relation(fields: [eventId], references: [id])
 
-  @@unique([eventId, userId, date])
+  @@unique([eventId, userId, participantEmail, date])
 }
