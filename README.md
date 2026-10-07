@@ -10,8 +10,6 @@ O projeto contém uma pasta oculta `.agent/` onde reside o arquivo `memory.md`. 
 ## 📂 Estrutura
 - `/frontend`: Aplicação Next.js 15+
 - `/backend`: API Node.js/Express com Prisma 7 e SQLite
-- `/frontend`: Aplicação Next.js 15+
-- `/backend`: API Node.js/Express com Prisma 7 e SQLite
 
 ## 🚀 Como Iniciar
 1. **Backend**: 
@@ -31,5 +29,3 @@ O projeto contém uma pasta oculta `.agent/` onde reside o arquivo `memory.md`. 
 - **Admin**: `gestor76693481353@pi.gov.br`
 - **Senha**: `123456`
 
----
-*Mantido por Antigravity*
