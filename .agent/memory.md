@@ -47,3 +47,6 @@ Sistema de avaliação de eventos e cursos com geração de certificados, integr
 
 ### 📝 Commit Auto-Log (2026-10-07 17:28:42)
 - docs: sincroniza log do memory.md
+
+### 📝 Commit Auto-Log (2026-10-07 17:29:39)
+- docs: remove mencao a antigravity do README
